@@ -1,8 +1,7 @@
 package chapter01;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 函数式接口
@@ -12,5 +11,14 @@ import java.util.function.Consumer;
  */
 
 public class Main {
+	String port = "900";
+
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getName());
+		ExecutorService executorService = Executors.newSingleThreadExecutor();
+		executorService.submit(() -> System.out.println(Thread.currentThread().getName()));
+
+	}
+
 
 }

@@ -15,8 +15,13 @@ import java.util.function.Consumer;
 public class ConsumerMain {
 
 	public static void main(String[] args) {
-		List<String> list = Arrays.asList("a", "b", "c", "d");
-		loggerList(list, (String s) -> System.out.println(s));
+		List<String> list = Arrays.asList("a", "b", "c", "d", null);
+		try {
+			loggerList(list, (String s) -> System.out.println(s.length()));
+		} catch (Exception e) {
+			throw new RuntimeException("null point");
+		}
+
 
 	}
 

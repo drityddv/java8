@@ -1,5 +1,10 @@
-import java.util.Arrays;
+package main;
+
+import main.service.PvpService;
+
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author : ddv
@@ -7,8 +12,12 @@ import java.util.List;
  */
 
 public class Main {
+	private static PvpService pvpService = PvpService.getInstance();
 	public static void main(String[] args) {
-		handler(Arrays.asList(1, 2, 3, 4, 5));
+		ExecutorService executorService = Executors.newCachedThreadPool();
+		while (true) {
+
+		}
 	}
 
 	private static void handler(List<Integer> list) {

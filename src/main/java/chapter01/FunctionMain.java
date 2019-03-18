@@ -17,7 +17,11 @@ public class FunctionMain {
 
 	public static void main(String[] args) {
 		List<Integer> ids = Arrays.asList(1, 2, 3);
-		makeApples(ids, (Integer id) -> new Apple(id)).forEach(System.out::println);
+
+		List<Apple> apples = makeApples(ids, (Integer id) -> new Apple(id));
+		List<Apple> apples2 = makeApples(ids, Apple::new);
+
+		apples.forEach(System.out::println);
 	}
 
 	private static <I, R> List<R> makeApples(List<I> ids, Function<I, R> function) {
@@ -29,19 +33,31 @@ public class FunctionMain {
 
 		return apples;
 	}
+
 }
 
 class Apple {
 	private int id;
+	private String name;
+
+	public Apple() {
+	}
 
 	Apple(int id) {
 		this.id = id;
+	}
+
+
+	public Apple(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
 		return "Apple{" +
 				"id=" + id +
+				", name='" + name + '\'' +
 				'}';
 	}
 }
