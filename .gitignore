@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+!.mvn/wrapper/maven-wrapper.jar
+.DS_Store
+
 # Log file
 *.log
 
@@ -9,6 +12,12 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 # Package Files #
 *.jar
