@@ -1,9 +1,9 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author : ddv
@@ -11,6 +11,7 @@ import java.util.Set;
  */
 
 public class Main {
+	private static ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
 	private static HashMap<String, User> vipUsers = new HashMap<>();
 	private static List<User> users = new ArrayList<>();
 
@@ -25,7 +26,22 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		vipUsers.forEach((s, user) -> System.out.println(user));
+		ExecutorService executorService = Executors.newCachedThreadPool();
+		for (int i = 0; i < 100; i++) {
+			executorService.submit(() -> {
+				while (true) {
+					String uuid = UUID.randomUUID().toString();
+					if (map.containsKey(uuid)) {
+						System.exit(1);
+					}
+					System.out.println(uuid);
+					map.put(uuid, uuid);
+				}
+
+			});
+		}
+
+
 	}
 
 
