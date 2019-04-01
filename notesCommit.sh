@@ -4,4 +4,4 @@ cd /Users/ddv/workspace/java/java8
 git commit -m"case"
 git push origin develop
 git status
-echo "查看我的github: https://github.com/drityddv"
+echo "查看改动详情: https://github.com/drityddv/java8/pulls"
